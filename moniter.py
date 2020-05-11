@@ -4,6 +4,7 @@ from datetime import datetime, date
 from time import sleep
 import os
 import sys
+from firebase_upload import put_img
 
 ports = {"win32": "COM3", "linux": "/dev/ttyACM0"}
 
@@ -15,7 +16,7 @@ if platform == "win32":
 port = ports[platform]
 print("starting on " + str(platform) + " with port " + str(port))
 ser = serial.Serial(
-    port="COM3",
+    port=port,
     baudrate=9600,
     parity=serial.PARITY_NONE,
     stopbits=serial.STOPBITS_ONE,
@@ -67,8 +68,11 @@ while True:
                         cap.release()
                 elif platform == "linux":
                     os.system("raspistill -o img.jpg -w 230 -h 300")
+
+                put_img("img.jpg", "images/img.jpg")
+
                 # past_time = datetime.now()
-                counts = -200
+                counts = -2000
 
         # after done usig ,store
         counts += 1
