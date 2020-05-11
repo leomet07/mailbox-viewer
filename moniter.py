@@ -66,9 +66,9 @@ while True:
                         cv2.imwrite("img.jpg", frame)
                         cap.release()
                 elif platform == "linux":
-                    
+                    os.system("raspistill -o img.jpg -w 230 -h 300")
                 # past_time = datetime.now()
-                counts = -2000
+                counts = -200
 
         # after done usig ,store
         counts += 1
