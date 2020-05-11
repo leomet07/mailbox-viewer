@@ -42,7 +42,7 @@ while True:
         data_raw = int(data_raw)
         # print("Data is: " + data_raw)
 
-        if data_raw > 15:
+        if data_raw > 100:
             if counts > 500:
 
                 print(time_print() + "Lots of light detected" + ": " + str(data_raw))
@@ -69,7 +69,7 @@ while True:
                 elif platform == "linux":
                     os.system("raspistill -o img.jpg -w 230 -h 300")
 
-                put_img("img.jpg", "images/img.jpg")
+                put_img("img.jpg", "img.jpg")
 
                 # past_time = datetime.now()
                 counts = -2000
