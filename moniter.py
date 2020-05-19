@@ -6,8 +6,8 @@ import os
 import sys
 from firebase_upload import put_img
 
-ports = {"win32": "COM3", "linux": "/dev/ttyACM0"}
-
+#ports = {"win32": "COM3", "linux": "/dev/ttyACM0"}
+ports = {"win32": "COM4", "linux": "/dev/ttyUSB0"}
 platform = sys.platform
 
 if platform == "win32":
